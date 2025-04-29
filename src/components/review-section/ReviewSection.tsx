@@ -18,7 +18,7 @@ const ReviewSection = ({
   reviewSectionData: ReviewSectionProps[];
 }) => {
   const SERVER_URL =
-    process.env.STRAPI_ADMIN || "https://strapi-admin-wsao.onrender.com";
+    process.env.NEXT_PUBLIC_STRAPI_ADMIN ;
 
   // If no reviews, don't render the section
   if (reviewSectionData.length === 0) return null;
