@@ -19,7 +19,7 @@ const fetchUserType1Page = async (locale_language: string) => {
   try {
     const response = await fetch(
       `${process.env.STRAPI_ADMIN}/api/usertype1?pLevel=4&locale=${locale_language}`,
-      { next: { revalidate: 10000 } }
+      { next: { revalidate: 10 } }
     );
 
     if (!response.ok) {

@@ -19,7 +19,7 @@ const fetchHomePage = async (locale_language: string) => {
   try {
     const response = await fetch(
       `${process.env.STRAPI_ADMIN}/api/home?pLevel=5&locale=${locale_language}`,
-      { next: { revalidate: 10000 } }
+      { next: { revalidate: 10 } }
     );
 
     if (!response.ok) {

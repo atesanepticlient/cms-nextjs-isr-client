@@ -13,7 +13,7 @@ const fetchData = async (locale_language: string) => {
   try {
     const response = await fetch(
       `${process.env.STRAPI_ADMIN}/api/app-layout?pLevel=4&locale=${locale_language}`,
-      { next: { revalidate: 10000 } }
+      { next: { revalidate: 10 } }
     );
 
     if (!response.ok) {
@@ -33,7 +33,7 @@ const fetchDataLocalLanguage = async () => {
     const response = await fetch(
       `${process.env.STRAPI_ADMIN}/api/i18n/locales
 `,
-      { next: { revalidate: 10000 } }
+      { next: { revalidate: 10 } }
     );
 
     const languages = await response.json();
