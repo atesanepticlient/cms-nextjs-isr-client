@@ -19,7 +19,8 @@ type Props = {
 const fetchUserType1Page = async (locale_language: string) => {
   try {
     const response = await fetch(
-      `${process.env.STRAPI_ADMIN}/api/usertype2?pLevel=4&locale=${locale_language}`
+      `${process.env.STRAPI_ADMIN}/api/usertype2?pLevel=4&locale=${locale_language}`,
+      { next: { revalidate: 10000 } }
     );
 
     if (!response.ok) {

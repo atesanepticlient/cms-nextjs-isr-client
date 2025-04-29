@@ -10,7 +10,8 @@ import ServerError from "@/components/ServerError";
 const jobData = async (slug: string): Promise<any | { error: true }> => {
   try {
     const response = await fetch(
-      `${process.env.STRAPI_ADMIN}/api/jobs?filters[slug][$eq]=${slug}&pLevel=4`
+      `${process.env.STRAPI_ADMIN}/api/jobs?filters[slug][$eq]=${slug}&pLevel=4`,
+      { next: { revalidate: 10000 } }
     );
 
     if (!response.ok) {

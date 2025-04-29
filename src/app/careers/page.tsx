@@ -12,7 +12,8 @@ import ServerError from "@/components/ServerError";
 const fetchCareerPage = async (locale_language: string) => {
   try {
     const response = await fetch(
-      `${process.env.STRAPI_ADMIN}/api/career?pLevel=4&locale=${locale_language}`
+      `${process.env.STRAPI_ADMIN}/api/career?pLevel=4&locale=${locale_language}`,
+      { next: { revalidate: 10000 } }
     );
 
     if (!response.ok) {
@@ -39,8 +40,6 @@ const Careers = async ({ searchParams }: Props) => {
   if (data.error) {
     return <ServerError />;
   }
-
-
 
   return (
     <div className={`min-h-screen  transition-colors duration-300 `}>
