@@ -24,7 +24,7 @@ const Footer = ({ footerMain, languages }: FooterProps) => {
                   {d.title}
                 </h3>
                 <ul className="space-y-4">
-                  {d.links.map((link, j) => (
+                  {d.link.map((link, j) => (
                     <li key={j}>
                       <Link
                         href={link.redirect}
@@ -55,7 +55,7 @@ const Footer = ({ footerMain, languages }: FooterProps) => {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    {d.links.map((link, j) => (
+                    {d.link.map((link, j) => (
                       <li key={j} className="list-none">
                         <a
                           href={link.redirect}

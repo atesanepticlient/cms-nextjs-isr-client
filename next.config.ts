@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
 module.exports = {
   images: {
     remotePatterns: [
-      new URL("http://localhost:1337/**"),
+      new URL("http://localhost:1338/**"),
       new URL("https://cms-nextjs-strapi-9xag.onrender.com/**"),
       new URL("https://strapi-admin-wsao.onrender.com/**"),
     ],

@@ -94,7 +94,7 @@ interface FooterLink {
 
 interface FooterNavSection {
   title: string;
-  links: FooterLink[];
+  link: FooterLink[];
 }
 
 interface SocialMedia {

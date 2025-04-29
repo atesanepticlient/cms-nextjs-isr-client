@@ -29,7 +29,7 @@ const SectionContent = ({ heroData }: { heroData: HeroProps }) => {
 
       <div className="flex flex-wrap justify-center gap-2 md:gap-3">
         {heroData.hero_buttons.map((item: HeroButton, index: number) => {
-          if (item.type === "transperent") {
+          if (item.type == "transparent") {
             return (
               <Button
                 href={item.link}

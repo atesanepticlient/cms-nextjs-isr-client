@@ -6,6 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { ContentCardProps } from "@/types/components/usertype2";
 
 const ContentCard = ({ contentCardData }: ContentCardProps) => {
+  console.log({ contentCardData });
   return (
     <div className="container-c py-4 lg:py-6 ">
       <Image
@@ -26,8 +27,8 @@ const ContentCard = ({ contentCardData }: ContentCardProps) => {
           </p>
         )}
 
-        {contentCardData.card_buttons.length !== 0 &&
-          contentCardData.card_buttons.map((item, index) => (
+        {contentCardData?.card_buttons?.length !== 0 &&
+          contentCardData.card_buttons?.map((item, index) => (
             <a
               href={item.link}
               key={index}
