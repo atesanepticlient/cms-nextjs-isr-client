@@ -19,7 +19,10 @@ const FeaturesList = ({ featuresListData }: FeaturesListProps) => {
       <Swiper spaceBetween={5} slidesPerView={"auto"} className="mySwiper">
         {featuresListData.map((item, index) => (
           // Each SwiperSlide wraps a Card component
-          <SwiperSlide key={index} className="max-w-[50%] md:max-w-[25%]">
+          <SwiperSlide
+            key={index}
+            className="max-w-full md:max-w-[50%] lg:max-w-[25%]"
+          >
             <Card blog={item.blog} title={item.title} />
           </SwiperSlide>
         ))}

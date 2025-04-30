@@ -17,8 +17,7 @@ const ReviewSection = ({
 }: {
   reviewSectionData: ReviewSectionProps[];
 }) => {
-  const SERVER_URL =
-    process.env.NEXT_PUBLIC_STRAPI_ADMIN ;
+  const SERVER_URL = process.env.NEXT_PUBLIC_STRAPI_ADMIN;
 
   // If no reviews, don't render the section
   if (reviewSectionData.length === 0) return null;
@@ -27,7 +26,7 @@ const ReviewSection = ({
     <section className="px-6 paper py-12">
       <Swiper spaceBetween={5} slidesPerView={"auto"} className="mySwiper">
         {reviewSectionData.map((item, index) => (
-          <SwiperSlide key={index} className="max-w-[50%] md:max-w-[25%]">
+          <SwiperSlide key={index} className=" max-w-full md:max-w-[50%] lg:max-w-[25%]">
             <Card
               blog={item.blog}
               athorName={item.author_name}
