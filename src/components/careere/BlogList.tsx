@@ -13,7 +13,7 @@ const BlogList = ({ blogList }: BlogListProps) => {
   if (!Array.isArray(blogList)) return null; // Return null if blogList is not a valid array
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-8 py-8 px-6 lg:py-16 container-c">
+    <section className="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-8 mt-20 md:mt-24 px-3 lg:px-6  container-c">
       {blogList.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
       ))}

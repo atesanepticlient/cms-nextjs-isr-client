@@ -7,7 +7,7 @@ const SectionContent = ({ heroData }: { heroData: HeroProps }) => {
     <div className="  flex flex-col  space-y-6" data-aos="fade-down">
       <div className="absolute dark:block hidden top-2 right-[200px] rotate-[184]  w-64 h-44 rounded-full bg-gradient-to-l from-[#E855DE] to-transparent blur-2xl opacity-60 "></div>
 
-      <h1 className="text-3xl mt-0 md:mt-4  relative md:text-4xl uppercase px-2 lg:px-4 text-center font-bold leading-tight subpixel-antialiased">
+      <h1 className="text-3xl mt-0 md:mt-4 tracking-tighter relative md:text-4xl uppercase px-2 lg:px-4 text-center font-bold leading-tight subpixel-antialiased">
         {heroData.hero_texts[0].children[0].text}
       </h1>
 

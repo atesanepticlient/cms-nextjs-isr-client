@@ -44,7 +44,7 @@ const Careers = async ({ searchParams }: Props) => {
   return (
     <div className={`min-h-screen  transition-colors duration-300 `}>
       <AppLayout locale_language={locale_language}>
-        <main className="pt-20 max-w-[1440px] mx-auto">
+        <main className="pt-20  mx-auto">
           <Hero heroData={data?.Hero[0]} />
           <HeroSupportingText
             heroSupportingTextData={data?.hero_supporting_text}

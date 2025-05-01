@@ -24,29 +24,29 @@ const ContentPair = ({
   // Determine layout based on the 'orientation' field
   if (contentPairData.orientation === "right") {
     return (
-      <section className={`section  ${isBgShow && "section-bg"}`}>
-        <div className="container-c">
+      <div className={`  ${isBgShow && "section-bg"} mt-20 md:mt-24`}>
+        <section className={`section container-c`}>
           {/* Content first, Image second */}
           <SectionContent contentPairPrimaryData={contentPairData} />
           <SectionImage
             src={`${process.env.STRAPI_ADMIN}${contentPairData.content_image.url}`}
             alt="Analytics Dashboard"
           />
-        </div>
-      </section>
+        </section>
+      </div>
     );
   } else {
     return (
-      <section className={`section  ${isBgShow && "section-bg"}`}>
-        <div className="container-c">
+      <div className={`  ${isBgShow && "section-bg"} mt-20 md:mt-24`}>
+        <section className={`section  container-c`}>
+          {/* Image first, Content second */}
           <SectionImage
             src={`${process.env.STRAPI_ADMIN}${contentPairData.content_image.url}`}
             alt="Analytics Dashboard"
           />
           <SectionContent contentPairPrimaryData={contentPairData} />
-        </div>
-        {/* Image first, Content second */}
-      </section>
+        </section>
+      </div>
     );
   }
 };

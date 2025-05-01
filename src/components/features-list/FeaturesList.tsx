@@ -14,7 +14,7 @@ const FeaturesList = ({ featuresListData }: FeaturesListProps) => {
   if (featuresListData.length === 0) return null;
 
   return (
-    <section className="px-6 paper py-12">
+    <section className="px-3 lg:px-6 paper mt-20 md:mt-24">
       {/* Swiper component to display a carousel of feature cards */}
       <Swiper spaceBetween={5} slidesPerView={"auto"} className="mySwiper">
         {featuresListData.map((item, index) => (

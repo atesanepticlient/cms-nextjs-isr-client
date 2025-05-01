@@ -12,7 +12,7 @@ const HeroSupportingText = ({
     return null;
   }
   return (
-    <div className="px-2 md:px-8 lg:px-14 py-10 text-center">
+    <div className="px-2 md:px-8 mt-20 md:mt-24 text-center">
       <h3 className="max-w-[80%] mx-auto text-lg lg:text-xl  font-semibold">
         {heroSupportingTextData[0].children[0].text}
       </h3>

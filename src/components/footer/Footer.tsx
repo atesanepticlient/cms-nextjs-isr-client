@@ -15,7 +15,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 const Footer = ({ footerMain, languages }: FooterProps) => {
   return (
     <footer className="container-c pt-16 pb-8">
-      <div className="container mx-auto px-6 ">
+      <div className="container mx-auto px-3 md:px-6 ">
         <div className="grid grid-cols-1 md:grid-cols-[75%_25%]">
           <div className="grid justify-between grid-cols-1 md:grid-cols-3 md:gap-10 mb-16">
             {footerMain.nav.map((d, i) => (
@@ -81,7 +81,7 @@ const Footer = ({ footerMain, languages }: FooterProps) => {
             </div>
 
             <div className="flex justify-center">
-              <LanSelector languages={languages}  />
+              <LanSelector languages={languages} />
             </div>
           </div>
         </div>

@@ -65,7 +65,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background:#fff;
+  --background: #fff;
   --foreground: #1a0933;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -154,8 +154,6 @@
   @apply w-[98%] sm:w-[97%] md:w-[92%] lg:w-[88%] mx-auto;
 }
 
-
-
 .card-list:has(div:hover) div:not(:hover) {
   filter: blur(4px);
 }
@@ -180,7 +178,7 @@
 }
 
 .section {
-  @apply relative px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start overflow-hidden;
+  @apply relative px-3 md:px-6  grid grid-cols-1 md:grid-cols-2 gap-8 items-start overflow-hidden;
 }
 
 .image-wrapper {

@@ -23,10 +23,13 @@ const ReviewSection = ({
   if (reviewSectionData.length === 0) return null;
 
   return (
-    <section className="px-6 paper py-12">
+    <section className=" paper mt-20 md:mt-24">
       <Swiper spaceBetween={5} slidesPerView={"auto"} className="mySwiper">
         {reviewSectionData.map((item, index) => (
-          <SwiperSlide key={index} className=" max-w-full md:max-w-[50%] lg:max-w-[25%]">
+          <SwiperSlide
+            key={index}
+            className=" max-w-full md:max-w-[50%] lg:max-w-[25%]"
+          >
             <Card
               blog={item.blog}
               athorName={item.author_name}

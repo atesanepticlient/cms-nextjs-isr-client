@@ -5,6 +5,7 @@ import { CiClock2 } from "react-icons/ci";
 import { BiMoney } from "react-icons/bi";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Content, ContentPairPrimaryProps } from "@/types/components/home";
+import Link from "next/link";
 
 const SectionContent = ({
   contentPairPrimaryData,
@@ -26,7 +27,7 @@ const SectionContent = ({
       )}
 
       {contentPairPrimaryData.content_headings[2]?.children[0].text && (
-        <p className="text-xs lg:text-sm text-foreground/90 mt-1 max-w-[410px]">
+        <p className="text-xs lg:text-sm text-foreground/90 mt-3 max-w-[410px] line-clamp-3">
           {contentPairPrimaryData.content_headings[2].children[0].text}
         </p>
       )}
@@ -46,12 +47,12 @@ const SectionContent = ({
                 </div>
                 <div>
                   {item.heading && (
-                    <h3 className="font-medium !text-sm md:!text-base ">
+                    <h3 className="font-semibold md:font-medium !text-sm md:!text-base ">
                       {item.heading}
                     </h3>
                   )}
                   {item.text && (
-                    <p className="font-normal text-foreground/90 text-xs lg:text-sm max-w-[420px] line-clamp-3">
+                    <p className="font-normal text-foreground/90 text-xs  max-w-[420px] line-clamp-3">
                       {item.text}
                     </p>
                   )}
@@ -63,18 +64,18 @@ const SectionContent = ({
       )}
 
       {contentPairPrimaryData.content_buttons && (
-        <div className="flex gap-5 items-center   mt-4 md:mt-10">
+        <div className="flex gap-5 items-center   mt-8 md:mt-12">
           {contentPairPrimaryData.content_buttons.map((item, index) => {
             if (item.type === "transperent") {
               return (
-                <a
+                <Link
                   href={item.link}
                   key={index}
-                  className="hover:underline uppercase !font-medium text-white text-sm gap-2 flex items-center cursor-pointer"
+                  className="hover:underline uppercase !font-medium text-white  gap-2 flex items-center cursor-pointer !text-xs md:!text-sm"
                 >
                   {item.label}
                   <IoIosArrowForward />
-                </a>
+                </Link>
               );
             } else {
               return (
@@ -82,7 +83,7 @@ const SectionContent = ({
                   key={index}
                   href={item.link}
                   variant="contained"
-                  className="bg-gradient-to-r !font-medium from-[#E855DE] via-[#E855DE] to-[#5400EE] !rounded-full !text-sm"
+                  className="bg-gradient-to-r !font-medium from-[#E855DE] via-[#E855DE] to-[#5400EE] !rounded-full !text-xs md:!text-sm"
                 >
                   {item.label}
                 </Button>

@@ -7,7 +7,6 @@ import { RiMenu5Line } from "react-icons/ri";
 import Link from "next/link";
 import { Nav } from "@/types/components/home";
 
-
 export default function Sidebar({ nav }: { nav: Nav[] }) {
   const [isSideBarOpen, setSideBarOpen] = React.useState(false);
 
@@ -28,7 +27,7 @@ export default function Sidebar({ nav }: { nav: Nav[] }) {
               <Link
                 href={n.link}
                 key={i}
-                className="text-sm border-b pb-3 border-b-foreground/50 font-semibold text-white uppercase hover:text-pink-500 transition-colors flex items-center gap-2"
+                className="text-sm border-b pb-3 border-b-foreground/50 font-bold md:font-semibold text-white uppercase hover:text-pink-500 transition-colors flex items-center gap-2"
               >
                 {n.label}
               </Link>

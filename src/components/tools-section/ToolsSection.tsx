@@ -17,7 +17,7 @@ const ToolsSection = ({
   }
 
   return (
-    <section className="pt-10 lg:pt-16 container-c">
+    <section className=" container-c mt-20 md:mt-24">
       <div className="flex flex-col px-3">
         {/* Display heading with gradient text */}
         <span className="text-xl uppercase lg:text-2xl font-bold subpixel-antialiased bg-gradient-to-r text-transparent bg-clip-text from-[#E855DE] via-[#E855DE] to-[#5400EE]">

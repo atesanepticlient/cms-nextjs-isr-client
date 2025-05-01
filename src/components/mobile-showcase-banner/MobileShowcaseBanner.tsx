@@ -51,7 +51,7 @@ const MobileShowcaseBanner = ({ mobileShowcaseData }: MobileShowcaseProps) => {
       </div>
 
       {/* Content below the banner */}
-      <div className="container-c flex flex-col md:flex-row justify-between px-5 py-7 md:py-16 mt-16 md:mt-6">
+      <div className="container-c flex flex-col md:flex-row justify-between px-3 md:px-5 py-7 md:py-16 mt-16 md:mt-6">
         {/* Display the second text if available */}
         {mobileShowcaseData.showcase_texts[1]?.children[0].text && (
           <p className="text-xs md:max-w-[480px] mt-5 md:mt-0 order-2 md:order-1">

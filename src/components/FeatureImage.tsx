@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const FeatureImage = ({ banner }: { banner: { url: string } }) => {
   return (
-    <section className="py-6 lg:py-12">
+    <section className="mt-20 md:mt-24">
       <div className="image-wrapper aspect-[4/1] ">
         <Image
           src={`${process.env.STRAPI_ADMIN}${banner.url}`}

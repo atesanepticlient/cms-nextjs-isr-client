@@ -25,7 +25,7 @@ const Jobs = () => {
   if (isError) return <div>Error: {error.message}</div>; // Added error handling
 
   return (
-    <section className="container-c lg:px-6 py-12 lg:py-16 px-4 md:px-0">
+    <section className="container-c lg:px-6 mt-20 md:mt-24 px-3">
       <FindJob categories={data} />
       <Categories categories={data} />
     </section>
