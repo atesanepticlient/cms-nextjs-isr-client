@@ -6,6 +6,7 @@
 import React, { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { useJobSearch } from "@/lib/store.zustand";
+import { IoIosClose } from "react-icons/io";
 
 import {
   Select,
@@ -87,7 +88,7 @@ const FindJob = ({ categories }: { categories: any }) => {
         <span className="text-xs lg:text-sm text-inherit">Filter By</span>
         <div className="flex gap-2 lg:gap-5">
           <Select onValueChange={(value) => setCategory(value)}>
-            <SelectTrigger className="w-[160px] lg:w-[180px] !bg-transparent border text-foreground border-white/50 dark:border-white/15">
+            <SelectTrigger className="w-[150px] lg:w-[180px] !bg-transparent border text-foreground border-white/50 dark:border-white/15">
               <SelectValue placeholder="All categories" />
             </SelectTrigger>
             <SelectContent className="bg-background">
@@ -103,7 +104,7 @@ const FindJob = ({ categories }: { categories: any }) => {
             </SelectContent>
           </Select>
           <Select onValueChange={(value) => setLocation(value)}>
-            <SelectTrigger className="w-[160px] lg:w-[180px] !bg-transparent border text-foreground border-white/50 dark:border-white/15">
+            <SelectTrigger className="w-[150px] lg:w-[180px] !bg-transparent border text-foreground border-white/50 dark:border-white/15">
               <SelectValue placeholder="Location" />
             </SelectTrigger>
             <SelectContent className="bg-background">
@@ -120,7 +121,8 @@ const FindJob = ({ categories }: { categories: any }) => {
               onClick={setResetSearch}
               className="bg-transparent border text-foreground hover:bg-transparent cursor-pointer"
             >
-              Reset
+              <span className="hidden md:block">Reset</span>{" "}
+              <IoIosClose className="md:hidden" />
             </Button>
           )}
         </div>
