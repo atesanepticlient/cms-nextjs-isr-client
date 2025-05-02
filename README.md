@@ -16,7 +16,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## example env
+## Example env
 ```bash
 NEXT_PUBLIC_STRAPI_ADMIN = strapi-live-url
 STRAPI_ADMIN = strapi-live-url
@@ -28,4 +28,8 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID  = google-analytics-measurement-id
 
 TAWK_PROPERTY_ID= tawk-io-propery-id
 TAWK_WIDGET_ID= tawk-io-widget-id
+```
+## Docker 
+```bash
+docker pull sanbinhoque/cms-isr-nextjs
 ```
