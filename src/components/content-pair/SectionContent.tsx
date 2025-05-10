@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiClock2 } from "react-icons/ci";
@@ -6,6 +5,7 @@ import { BiMoney } from "react-icons/bi";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Content, ContentPairPrimaryProps } from "@/types/components/home";
 import Link from "next/link";
+import PrimaryButton from "../PrimaryButton";
 
 const SectionContent = ({
   contentPairPrimaryData,
@@ -79,14 +79,9 @@ const SectionContent = ({
               );
             } else {
               return (
-                <Button
-                  key={index}
-                  href={item.link}
-                  variant="contained"
-                  className="bg-gradient-to-r !font-medium from-[#E855DE] via-[#E855DE] to-[#5400EE] !rounded-full !text-xs md:!text-sm"
-                >
-                  {item.label}
-                </Button>
+                <Link href={item.link} key={index}>
+                  <PrimaryButton>{item.label}</PrimaryButton>
+                </Link>
               );
             }
           })}

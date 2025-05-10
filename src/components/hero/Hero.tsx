@@ -17,7 +17,7 @@ const Hero = ({ heroData }: { heroData: HeroProps }) => {
     return (
       <>
         {/* Top left glowing background element (only in dark mode) */}
-        <div className="absolute dark:block hidden top-1/2 left-10 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-r from-purple-400 to-transparent blur-xl opacity-70 animate-pulse"></div>
+        {/* <div className="absolute dark:block hidden top-1/2 left-10 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-r from-purple-400 to-transparent blur-xl opacity-70 animate-pulse"></div> */}
 
         {/* Main hero section with image and content */}
         <section className="section container-c !items-start">
@@ -29,7 +29,7 @@ const Hero = ({ heroData }: { heroData: HeroProps }) => {
         </section>
 
         {/* Bottom right glowing background element (only in dark mode) */}
-        <div className="absolute dark:block hidden top-[70%] right-10 -translate-y-1/2 w-56 h-56 rounded-full bg-gradient-to-l from-indigo-400 to-transparent blur-2xl opacity-60 animate-pulse delay-150"></div>
+        {/* <div className="absolute dark:block hidden top-[70%] right-10 -translate-y-1/2 w-56 h-56 rounded-full bg-gradient-to-l from-indigo-400 to-transparent blur-2xl opacity-60 animate-pulse delay-150"></div> */}
       </>
     );
   }

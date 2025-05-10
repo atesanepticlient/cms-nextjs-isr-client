@@ -2,10 +2,10 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import Button from "@mui/material/Button";
 import Sidebar from "./Sidebar";
 import { isLinkButton, isNavArray, isOfType, isString } from "@/types/checker";
 import { HeaderProps, LinkButton, Nav } from "@/types/components/home";
+import PrimaryButton from "../PrimaryButton";
 
 const Header = (props: HeaderProps) => {
   const { brand, nav, button } = props;
@@ -36,11 +36,11 @@ const Header = (props: HeaderProps) => {
   return (
     <>
       <header
-        className={`fixed bg-transparent backdrop-blur-md py-2 px-3 md:px-5 lg:px-20 w-full z-50 transition-all duration-300 ${
+        className={`fixed bg-transparent backdrop-blur-md py-2 px-3 md:px-5 lg:px-20 w-full  z-50 transition-all duration-300 ${
           showHeader ? "top-0" : "-top-20"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-6 py-2 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto h-[60px] px-6 py-2 flex items-center justify-between">
           {/* ---brand--- */}
           {isOfType<string>(brand, isString) && (
             <div className="flex items-center ">
@@ -63,12 +63,9 @@ const Header = (props: HeaderProps) => {
           {/* ---brand--- */}
 
           {isOfType<LinkButton>(button, isLinkButton) && (
-            <Button
-              variant="contained"
-              className="!p-2 lg:!px-3 !text-xs  bg-gradient-to-r text-white font-semibold from-[#E855DE] via-[#E855DE] to-[#5400EE] !rounded-full"
-            >
-              <Link href={button.link}>{button.label}</Link>
-            </Button>
+            <Link href={button.link}>
+              <PrimaryButton>{button.label}</PrimaryButton>
+            </Link>
           )}
 
           {!isOfType<LinkButton>(button, isLinkButton) && (

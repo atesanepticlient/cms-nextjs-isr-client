@@ -103,7 +103,7 @@
 }
 
 .dark {
-  --background: #0d0518;
+  --background: #1E1E1E;
   --foreground: #fff;
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
@@ -330,4 +330,10 @@ h3 {
 }
 .job a {
   @apply text-blue-800 visited:text-blue-900 font-semibold text-sm hover:underline;
+}
+
+.button-bg-svg {
+  background: url("../../public/button-bg.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
 }

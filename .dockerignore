@@ -1,5 +1,7 @@
 node_modules
-.next
-Dockerfile
 .dockerignore
-.env
+Dockerfile
+*.log
+.git
+.gitignore
+.env.local
