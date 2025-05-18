@@ -13,7 +13,7 @@ const fetchCareerPage = async (locale_language: string) => {
   try {
     const response = await fetch(
       `${process.env.STRAPI_ADMIN}/api/career?pLevel=4&locale=${locale_language}`,
-      { next: { revalidate: 10 } }
+      { next: { revalidate: 100 } }
     );
 
     if (!response.ok) {
@@ -40,14 +40,13 @@ const Careers = async ({ searchParams }: Props) => {
   if (data.error) {
     return <ServerError />;
   }
-
   return (
     <div className={`min-h-screen  transition-colors duration-300 `}>
       <AppLayout locale_language={locale_language}>
         <main className="pt-20  mx-auto">
-          <Hero heroData={data?.Hero[0]} />
+          <Hero heroData={data?.Hero} />
           <HeroSupportingText
-            heroSupportingTextData={data?.hero_supporting_text}
+            heroSupportingTextData={data?.supporting_text_content}
           />
           <BlogList blogList={data?.Blog_Card_List} />
           <Jobs />

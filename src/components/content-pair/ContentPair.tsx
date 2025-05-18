@@ -1,54 +1,38 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
 import SectionImage from "../SectionImage";
 import SectionContent from "./SectionContent";
 
-import { ContentPairPrimaryProps } from "@/types/components/home";
-import { isOfType, isString } from "@/types/checker";
+// import { ContentPairPrimaryProps } from "@/types/components/home";
+// import { isOfType, isString } from "@/types/checker";
 
 const ContentPair = ({
   contentPairData,
   isBgShow = false,
 }: {
-  contentPairData: ContentPairPrimaryProps;
+  contentPairData: any;
   isBgShow?: boolean;
 }) => {
-  // Validate content pair data: must have headings and a valid image URL
-  if (
-    contentPairData?.content_headings.length === 0 ||
-    !isOfType<string>(contentPairData.content_image.url, isString)
-  ) {
-    return null;
-  }
-
-  // Determine layout based on the 'orientation' field
-  if (contentPairData.orientation === "right") {
-    return (
-      <div className={`  ${isBgShow && "section-bg"} mt-20 md:mt-24`}>
-        <section className={`section container-c`}>
-          {/* Content first, Image second */}
-          <SectionContent contentPairPrimaryData={contentPairData} />
-          <SectionImage
-            src={`${process.env.STRAPI_ADMIN}${contentPairData.content_image.url}`}
-            alt="Analytics Dashboard"
-          />
-        </section>
-      </div>
-    );
-  } else {
-    return (
-      <div className={`  ${isBgShow && "section-bg"} mt-20 md:mt-24`}>
-        <section className={`section  container-c`}>
-          {/* Image first, Content second */}
-          <SectionImage
-            src={`${process.env.STRAPI_ADMIN}${contentPairData.content_image.url}`}
-            alt="Analytics Dashboard"
-          />
-          <SectionContent contentPairPrimaryData={contentPairData} />
-        </section>
-      </div>
-    );
-  }
+  return (
+    <div className={`   mt-20 md:mt-24`}>
+      <section className={`section container-c !items-center`}>
+        {/* Content first, Image second */}
+        <SectionContent
+          content={contentPairData.content}
+          featuresList={contentPairData.features_list}
+          buttons={contentPairData.buttons}
+          order={contentPairData.orientation == "left" ? "order-1" : "order-2"}
+        />
+        <SectionImage
+          src={`${contentPairData.content_image.url}`}
+          alt="Analytics Dashboard"
+          order={contentPairData.orientation == "left" ? "order-2" : "order-1"}
+        />
+      </section>
+    </div>
+  );
 };
 
 export default ContentPair;

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import LogRocketProvider from "./logrocket-provider";
 import TawkProvider from "./tawk-provider";
 import GoogleAnalyticsProvider from "./google-analytics-provider";
-import AnimationProvider from "./animation-provider";
-const inter = Inter({
-  variable: "--font-inter",
+
+// add a font you want
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  display: "swap",
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
@@ -41,13 +43,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Empowering Web Solutions with ISR Next.js & Strapi CMS",
-    description:
-      "Build modern, responsive websites with cutting-edge ISR technology and powerful content management.",
-    images: ["https://yourwebsite.com/twitter-image.jpg"],
-  },
+
   alternates: {
     canonical: "https://yourwebsite.com/",
   },
@@ -68,8 +64,7 @@ export default function RootLayout({
         <TawkProvider />
         <GoogleAnalyticsProvider />
       </head>
-      <body className={` ${inter.variable} antialiased dark`}>
-        <AnimationProvider />
+      <body className={` ${roboto.variable} antialiased dark font-roboto`}>
         <LogRocketProvider />
         {children}
       </body>

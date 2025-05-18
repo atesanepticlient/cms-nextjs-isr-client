@@ -34,7 +34,7 @@ export interface Checkbox {
   label: string;
 }
 export interface HeroProps {
-  hero_texts: RichText[];
+  content: RichText[];
   hero_image: { url: string };
   hero_buttons: HeroButton[];
   checkbox: Checkbox[];

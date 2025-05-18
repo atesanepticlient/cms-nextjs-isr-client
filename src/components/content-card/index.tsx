@@ -1,23 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 
-import banner from "@/../public/banner.jpg";
-import Image from "next/image";
+
 import { IoIosArrowForward } from "react-icons/io";
 import { ContentCardProps } from "@/types/components/usertype2";
 
 const ContentCard = ({ contentCardData }: ContentCardProps) => {
   console.log({ contentCardData });
   return (
-    <div className="container-c py-4 lg:py-6 ">
-      <Image
-        src={banner}
+    <section className="container-c py-4 lg:py-6 mt-20 md:mt-24">
+      <img
+        src={process.env.STRAPI_ADMIN + contentCardData.card.url}
         alt="banner"
         className="w-full aspect-[10/2] object-cover"
       />
 
       <div className="my-3 lg:my-6 ">
         {contentCardData.card_texts[0].children[0].text && (
-          <h3 className="text-lg md:text-xl font-semibold uppercase mb-2">
+          <h3 className="text-lg md:text-xl font-semibold  mb-2">
             {contentCardData.card_texts[0].children[0].text}
           </h3>
         )}
@@ -32,13 +32,13 @@ const ContentCard = ({ contentCardData }: ContentCardProps) => {
             <a
               href={item.link}
               key={index}
-              className="mt-5 uppercase hover:underline text-sm gap-2 flex items-center cursor-pointer"
+              className="mt-5  hover:underline text-sm gap-2 flex items-center cursor-pointer"
             >
               {item.label} <IoIosArrowForward />
             </a>
           ))}
       </div>
-    </div>
+    </section>
   );
 };
 

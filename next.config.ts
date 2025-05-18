@@ -13,8 +13,8 @@ module.exports = {
     ],
   },
   env: {
-    NEXT_PUBLIC_STRAPI_ADMIN: "https://strapi-admin-oqcp.onrender.com",
-    STRAPI_ADMIN: "https://strapi-admin-oqcp.onrender.com",
+    NEXT_PUBLIC_STRAPI_ADMIN: "http://localhost:1338",
+    STRAPI_ADMIN: "http://localhost:1338",
     NEXT_PUBLIC_LOGROCKET_API_ID: "wcrrkn",
     NEXT_PUBLIC_LOGROCKET_PROJECT_NAME: "cms-isr",
     NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-PMHXR9FWMZ",

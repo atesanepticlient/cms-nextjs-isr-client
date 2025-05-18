@@ -36,17 +36,17 @@ const Header = (props: HeaderProps) => {
   return (
     <>
       <header
-        className={`fixed bg-transparent backdrop-blur-md py-2 px-3 md:px-5 lg:px-20 w-full  z-50 transition-all duration-300 ${
-          showHeader ? "top-0" : "-top-20"
+        className={`fixed bg-background  py-2 px-2 md:px-5 lg:px-20 w-full border-b border-b-[#dcdcdc] dark:border-b-[#353039]  z-50 transition-all duration-300 ${
+          showHeader ? "top-0 " : "-top-20 "
         }`}
       >
-        <div className="max-w-[1440px] mx-auto h-[60px] px-6 py-2 flex items-center justify-between">
+        <div className=" mx-auto h-[60px]   flex items-center justify-between ">
           {/* ---brand--- */}
           {isOfType<string>(brand, isString) && (
             <div className="flex items-center ">
               <Link href="/" className="text-xl font-bold">
                 <img
-                  src={brand}
+                  src={`http://localhost:1338${brand}`}
                   className="w-[45px] md:w-[50px] h-auto"
                   alt="brand"
                 />
@@ -62,28 +62,34 @@ const Header = (props: HeaderProps) => {
           )}
           {/* ---brand--- */}
 
-          {isOfType<LinkButton>(button, isLinkButton) && (
-            <Link href={button.link}>
-              <PrimaryButton>{button.label}</PrimaryButton>
-            </Link>
-          )}
+          <div className="flex items-center gap-5">
+            {isOfType<LinkButton>(button, isLinkButton) && (
+              <Link href={button.link}>
+                <PrimaryButton className="!w-[150px] lg:w-[220px]">
+                  {button.label}
+                </PrimaryButton>
+              </Link>
+            )}
 
-          {!isOfType<LinkButton>(button, isLinkButton) && (
-            <div className="w-[130px] md:w-[160px] h-[30px] dark:bg-[#ddd] bg-[#222] flex justify-center items-center">
-              <span className="text-sm text-black">button</span>
-            </div>
-          )}
-
-          <nav className="hidden nav-list md:flex items-center gap-2">
+            {!isOfType<LinkButton>(button, isLinkButton) && (
+              <div className="w-[130px] md:w-[160px] h-[30px] dark:bg-[#ddd] bg-[#222] flex justify-center items-center">
+                <span className="text-sm text-black">button</span>
+              </div>
+            )}
+            {isOfType<Nav[]>(nav, isNavArray) && <Sidebar nav={nav} />}
+          </div>
+          <nav className="hidden nav-list md:flex items-center ">
             {isOfType<Nav[]>(nav, isNavArray) && (
               <>
                 {nav.map((n, i) => (
                   <Link
                     key={i}
                     href={n.link}
-                    className="hover:text-pink-500  nav-link px-4 transition-colors cursor-pointer uppercase text-xs font-semibold"
+                    className="relative hover:text-indigo-600 leading-relaxed tracking-wider hover:transition-all focus:text-indigo-600 focus-visible:text-indigo-600   md:px-6 lg:px-8 transition-colors cursor-pointer uppercase text-xs font-semibold "
                   >
                     {n.label}
+
+                    <div className=" vertical-line bg-gradient-to-b from-transparent dark:via-gray-400 via-gray-800 to-transparent absolute -top-[20px]  right-0 h-[56px] w-px "></div>
                   </Link>
                 ))}
               </>
@@ -102,8 +108,6 @@ const Header = (props: HeaderProps) => {
               </>
             )}
           </nav>
-
-          {isOfType<Nav[]>(nav, isNavArray) && <Sidebar nav={nav} />}
         </div>
       </header>
     </>

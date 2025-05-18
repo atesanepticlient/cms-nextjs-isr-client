@@ -12,7 +12,7 @@ interface AppLayoutProps {
 const fetchData = async (locale_language: string) => {
   try {
     const response = await fetch(
-      `${process.env.STRAPI_ADMIN}/api/app-layout?pLevel=4&locale=${locale_language}`,
+      `${process.env.STRAPI_ADMIN}/api/app-layout?pLevel=3&locale=${locale_language}`,
       { next: { revalidate: 10 } }
     );
 
@@ -56,7 +56,7 @@ const AppLayout = async ({ children, locale_language }: AppLayoutProps) => {
     <div>
       {/* Header */}
       <Header
-        brand={`${process.env.STRAPI_ADMIN}${data.header.logo.url}`}
+        brand={`${data.header.logo.url}`}
         button={data.header.button}
         nav={data.header.navlinks}
       />

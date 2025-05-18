@@ -7,7 +7,11 @@ declare global {
 }
 // Log page views
 export const pageview = (url: any) => {
-  window.gtag("config", GA_MEASUREMENT_ID, {
-    page_path: url,
-  });
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("config", GA_MEASUREMENT_ID, {
+      page_path: url,
+    });
+  } else {
+    console.warn("gtag is not loaded yet.");
+  }
 };

@@ -28,7 +28,7 @@ const ReviewSection = ({
         {reviewSectionData.map((item, index) => (
           <SwiperSlide
             key={index}
-            className=" max-w-full md:max-w-[50%] lg:max-w-[25%]"
+            className=" max-w-full md:max-w-[50%] lg:max-w-[33.33%]"
           >
             <Card
               blog={item.blog}
@@ -68,16 +68,14 @@ const Card = ({
         </Avatar>
 
         {/* Review content */}
-        <p className="opacity-80 px-2 md:px-4 lg:px-6 text-justify text-xs">
-          {blog}
-        </p>
+        <p className=" px-2 md:px-4 lg:px-6 text-center text-xs font-normal tracking-wide">{blog}</p>
 
         {/* Author name */}
         <Link
           href="#"
-          className="text-sm truncate text-center block mt-4 font-semibold"
+          className="text-sm lg:text-base  text-center block mt-4 leading-relaxed tracking-wide font-medium hover:underline"
         >
-          {athorName}
+          — {athorName}
         </Link>
       </div>
     </div>

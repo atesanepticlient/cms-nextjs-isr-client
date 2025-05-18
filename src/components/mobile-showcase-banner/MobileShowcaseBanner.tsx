@@ -1,88 +1,81 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import banner from "@/../public/banner.jpg";
-import { IoIosArrowForward } from "react-icons/io";
-import { MobileShowcaseProps } from "@/types/components/usertype1";
-import { isOfType, isString } from "@/types/checker";
 
-const MobileShowcaseBanner = ({ mobileShowcaseData }: MobileShowcaseProps) => {
+import ReactMarkdown from "react-markdown";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Parallax, Pagination, Navigation } from "swiper/modules";
+
+const MobileShowcaseBanner = ({ mobileShowcaseData }: any) => {
   // Calculate the phone screen's position based on the provided position in mobileShowcaseData
-  const phoneScreenStyle = ` ${
-    mobileShowcaseData.position === "right"
-      ? "md:!left-[auto]  md:right-32 md:!-top-32 md:-translate-y-[auto]"
-      : ""
-  }`;
-
-  // Ensure the showcase image URL is valid
-  if (!isOfType<string>(mobileShowcaseData.showcase_image.url, isString)) {
-    return null; // Return null if URL is invalid
-  }
-
+  // const phoneScreenStyle = ` ${
+  //   mobileShowcaseData.position === "right"
+  //     ? "md:!left-[auto]  md:right-32 md:!-top-32 md:-translate-y-[auto]"
+  //     : ""
+  // }`;
+  console.log({ mobileShowcaseData });
   return (
-    <section className="pt-22 lg:pt-32 w-full">
-      <div className="relative">
-        {/* Phone screen image */}
+    <section className={`mt-28 lg:mt-32 w-full`} >
+      <Swiper
+        // style={{
+        //   "--swiper-navigation-color": "#fff",
+        //   "--swiper-pagination-color": "#fff",
+        // }}
+        speed={600}
+        parallax={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Parallax, Pagination, Navigation]}
+        className=" !w-full !px-0"
+      >
         <div
-          className={`absolute top-1/2 left-[55%] -translate-y-1/2 -translate-x-1/2 ${phoneScreenStyle}`}
-        >
-          <Image
-            width={600}
-            height={600}
-            alt="phone screen"
-            className="scale-[.85] object-contain w-[200px] md:w-[250px] lg:w-[320px]"
-            src={`${process.env.STRAPI_ADMIN}${mobileShowcaseData.showcase_image.url}`}
-          />
-        </div>
+          slot="container-start"
+          className="relative w-[130%] h-[300px] md:h-[320px] lg:h-[500px] bg-cover bg-center bg-no-repeat "
+          style={{
+            background: `url(${process.env.STRAPI_ADMIN}${mobileShowcaseData.showcase_banner.url})`,
+          }}
+          data-swiper-parallax="-23%"
+        ></div>
+        {mobileShowcaseData.mobile_showcase_content.map(
+          (mc: any, i: number) => (
+            <SwiperSlide key={i}>
+              <div className="container-c grid grid-cols-1 lg:grid-cols-3 py-6 md:py-8 lg:py-10 gap-10 lg:gap-0">
+                <div className="hidden lg:block">
+                  <h2 className="text-foreground text-4xl font-semibold max-w-[280px]">
+                    {mc.title}
+                  </h2>
+                </div>
+                <div className="relative h-[130px]">
+                  <img
+                    src={`${process.env.STRAPI_ADMIN}${mc.screen.url}`}
+                    alt="phone screen"
+                    className="max-w-[400px] h-auto mx-auto absolute -top-[300px] left-1/2 -translate-x-1/2"
+                  />
+                </div>
+                <div className="text-start markdown mobile-showcase">
+                  <h2 className="text-foreground !text-2xl mb-4 !text-start !font-semibold lg:hidden ">
+                    {mc.title}
+                  </h2>
+                  <ReactMarkdown>{mc.description}</ReactMarkdown>
 
-        {/* Banner image */}
-        <Image
-          sizes="100vw"
-          width={0}
-          height={0}
-          src={
-            mobileShowcaseData.showcase_banner?.url
-              ? process.env.STRAPI_ADMIN +
-                mobileShowcaseData.showcase_banner.url
-              : banner // Fallback to the default banner if no banner URL is provided
-          }
-          alt="banner"
-          className="w-full aspect-[8/2] object-cover"
-        />
-      </div>
-
-      {/* Content below the banner */}
-      <div className="container-c flex flex-col md:flex-row justify-between px-3 md:px-5 py-7 md:py-16 mt-16 md:mt-6">
-        {/* Display the second text if available */}
-        {mobileShowcaseData.showcase_texts[1]?.children[0].text && (
-          <p className="text-xs md:max-w-[480px] mt-5 md:mt-0 order-2 md:order-1">
-            {mobileShowcaseData.showcase_texts[1].children[0].text}
-          </p>
+                 
+                </div>
+              </div>
+            </SwiperSlide>
+          )
         )}
-
-        {/* Showcase the buttons and first text */}
-        <div className="flex order-1 md:order-2 md:max-w-[380px]">
-          <div>
-            {/* Display the first text if available */}
-            {mobileShowcaseData.showcase_texts[0]?.children[0].text && (
-              <h5 className="text-sm font-medium uppercase">
-                {mobileShowcaseData.showcase_texts[0].children[0].text}
-              </h5>
-            )}
-
-            {/* Display buttons if any */}
-            {mobileShowcaseData.showcase_buttons.length !== 0 &&
-              mobileShowcaseData.showcase_buttons.map((item, index) => (
-                <a
-                  href={item.link}
-                  key={index}
-                  className="mt-5 uppercase hover:underline text-sm gap-2 flex items-center cursor-pointer"
-                >
-                  {item.label} <IoIosArrowForward />
-                </a>
-              ))}
-          </div>
-        </div>
-      </div>
+      </Swiper>
     </section>
   );
 };
